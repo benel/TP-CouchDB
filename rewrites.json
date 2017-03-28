@@ -1,0 +1,8 @@
+[{
+  "from": "*",
+  "method": "GET",
+  "to": "../../*"
+},{
+  "from": "*",
+  "to": "_update/timestamp/*"
+}]
