@@ -7,6 +7,16 @@
     "descending": "true"
   }
 },{
+  "from": "user/:user",
+  "method": "GET",
+  "to": "_view/by_user",
+  "query": {
+    "include_docs": "true",
+    "descending": "true",
+    "startkey": [":user", {}],
+    "endkey": [":user"]
+  }
+},{
   "from": "*",
   "method": "GET",
   "to": "_show/tweet/*"
