@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.feed {
+  margin: 20px 40px;
+  text-align: left;
+}
+
+.tweet {
+  margin: 10px;
+  padding: 10px;
+  border-bottom: groove;
+}
+
+.user {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+.timestamp {
+  color: gray;
+}
+
+.text {
+  font-style: italic;
+}
+
+.text:before{
+  content: open-quote;
+  font-size: xx-large;
+  color: lightblue;
+}
+
+.text:after{
+  content: close-quote;
+  font-size: xx-large;
+  color: lightblue;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

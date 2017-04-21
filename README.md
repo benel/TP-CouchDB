@@ -7,3 +7,6 @@ Application développée dans le cadre d'une suite de travaux pratiques d'un cou
     git clone https://github.com/benel/TP-CouchDB.git
     cd TP-CouchDB/api
     couchapp push
+    cd ../app
+    npm install
+    npm start
