@@ -17,6 +17,16 @@
     "endkey": [":user"]
   }
 },{
+  "from": "hashtag/:hashtag",
+  "method": "GET",
+  "to": "_view/by_hashtag",
+  "query": {
+    "include_docs": "true",
+    "descending": "true",
+    "startkey": [":hashtag", {}],
+    "endkey": [":hashtag"]
+  }
+},{
   "from": "*",
   "method": "GET",
   "to": "_show/tweet/*"
