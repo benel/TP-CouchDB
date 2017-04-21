@@ -71,6 +71,12 @@ class Feed extends React.Component {
       user,
       text
     };
+    jQuery.ajax({
+      method: 'POST',
+      url: service,
+      contentType: 'application/json',
+      data: JSON.stringify(doc)
+    });
     this.setState({tweets: [{doc}].concat(this.state.tweets)});
   }
 
