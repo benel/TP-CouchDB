@@ -1,7 +1,11 @@
 [{
   "from": "",
   "method": "GET",
-  "to": "index.html"
+  "to": "_view/all",
+  "query": {
+    "include_docs": "true",
+    "descending": "true"
+  }
 },{
   "from": "*",
   "method": "GET",
