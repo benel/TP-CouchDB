@@ -19,10 +19,14 @@
   text-align: left;
 }
 
-.tweet {
+.tweet, .tweet-form {
   margin: 10px;
   padding: 10px;
   border-bottom: groove;
+}
+
+.new-tweet {
+  width: 600px;
 }
 
 .user {
