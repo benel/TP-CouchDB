@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import jQuery from 'jquery'; 
 import moment from 'moment'; 
 import uuid from 'uuid';
@@ -10,13 +11,15 @@ const url = "http://cuicui.local:5984/";
 
 class App extends Component {
   render() {
+    const path = this.props.match.url;
+    const user = this.props.match.params.user;
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Cuicui !</h2>
+          <h2>Cuicui ! {user? `– ${user}` : ''}</h2>
         </div>
-        <Feed />
+        <Feed path={path} />
       </div>
     );
   }
@@ -82,9 +85,10 @@ class Tweet extends React.Component {
   render() {
     const timezone = moment().utcOffset();
     const timestamp = moment(this.props.created_at).utcOffset(timezone).format("LLLL");
+    const user = this.props.user;
     return (
       <div className="tweet">
-        <div className="user">{this.props.user}</div>
+        <div className="user"><Link to={`/user/${user}`}>{user}</Link></div>
         <div className="timestamp">{timestamp}</div>
         <div className="text">{this.props.text}</div>
       </div>
