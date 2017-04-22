@@ -7,7 +7,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'moment/locale/fr';
 
-const url = "http://cuicui.local:5984/";
+const service = "http://cuicui.local:5984/";
 
 class App extends Component {
   render() {
@@ -75,6 +75,7 @@ class Feed extends React.Component {
   }
 
   _fetchTweets() {
+    let url = service + this.props.path;
     jQuery.ajax({
       method: "GET",
       url,
