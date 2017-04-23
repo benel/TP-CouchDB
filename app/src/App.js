@@ -51,6 +51,12 @@ class Feed extends React.Component {
     );
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.path !== prevProps.path) {
+      this._fetchTweets();
+    }
+  }
+
   componentWillUnmount() {
     clearInterval(this._timer);
   }
@@ -90,9 +96,29 @@ class Tweet extends React.Component {
       <div className="tweet">
         <div className="user"><Link to={`/user/${user}`}>{user}</Link></div>
         <div className="timestamp">{timestamp}</div>
-        <div className="text">{this.props.text}</div>
+        <Text raw={this.props.text} />
       </div>
     );
+  }
+}
+
+class Text extends React.Component {
+  render() {
+    let styled = this._getStyled();
+    return (
+      <div className="text">{styled}</div>
+    );
+  }
+
+  _getStyled() {
+    return this.props.raw.match(/(([^@]+)|(@\w+))/g).map((match, i) => {
+      switch (match[0]) {
+        case "@":
+          return <Link key={i} to={`/user/${match.substring(1)}`}>{match}</Link>;
+        default:
+          return match;
+      }
+    });
   }
 }
 
