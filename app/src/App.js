@@ -13,11 +13,15 @@ class App extends Component {
   render() {
     const path = this.props.match.url;
     const user = this.props.match.params.user;
+    const hashtag = this.props.match.params.hashtag;
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Cuicui ! {user? `– ${user}` : ''}</h2>
+          <h2>Cuicui !
+            {(user)? ` – @${user}` : ""}
+            {(hashtag)? ` – #${hashtag}` : ""}
+          </h2>
         </div>
         <Feed path={path} />
       </div>
@@ -111,10 +115,12 @@ class Text extends React.Component {
   }
 
   _getStyled() {
-    return this.props.raw.match(/(([^@]+)|(@\w+))/g).map((match, i) => {
+    return this.props.raw.match(/(([^@#]+)|(@\w+)|(#\w+))/g).map((match, i) => {
       switch (match[0]) {
         case "@":
           return <Link key={i} to={`/user/${match.substring(1)}`}>{match}</Link>;
+        case "#":
+          return <Link key={i} to={`/hashtag/${match.substring(1)}`}>{match}</Link>;
         default:
           return match;
       }

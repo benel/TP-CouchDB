@@ -9,6 +9,7 @@ ReactDOM.render(
     <div>
       <Route exact path="/" component={App} />
       <Route path="/user/:user" component={App} />
+      <Route path="/hashtag/:hashtag" component={App} />
     </div>
   </Router>,
   document.getElementById('root')
