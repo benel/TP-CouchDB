@@ -27,6 +27,10 @@
     "endkey": [":hashtag"]
   }
 },{
+  "from": "_changes",
+  "method": "GET",
+  "to": "../../_changes"
+},{
   "from": "*",
   "method": "GET",
   "to": "_show/tweet/*"
